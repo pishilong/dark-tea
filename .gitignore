@@ -16,4 +16,4 @@
 /tmp
 
 # Ignore RVM
-.ruby-version
+#.ruby-version

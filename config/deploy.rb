@@ -31,7 +31,7 @@ task :environment do
   # invoke :'rbenv:load'
 
   # For those using RVM, use this to load an RVM version@gemset.
-  # invoke :'rvm:use[ruby-1.9.3-p125@default]'
+  invoke :'rvm:use[ruby-2.1.1@dark-tea]'
 end
 
 # Put any custom mkdir's in here for when `mina setup` is ran.
@@ -61,8 +61,20 @@ task :deploy => :environment do
 
     to :launch do
       queue "touch #{deploy_to}/tmp/restart.txt"
+
+      sleep 1
+      invoke :curl
     end
   end
+end
+
+task :restart do
+  queue "mkdir -p #{deploy_to}/#{current_path}/tmp"
+  queue "touch #{deploy_to}/#{current_path}/tmp/restart.txt"
+end
+
+task :curl do
+  queue "curl -s -o /dev/null #{domain}"
 end
 
 # For help in making your deploy script, see the Mina documentation:
