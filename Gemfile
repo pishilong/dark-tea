@@ -42,10 +42,7 @@ end
 gem 'thin'
 
 # Use Capistrano for deployment
-gem 'capistrano', '~> 3.1.0'
-gem 'capistrano-bundler', '~> 1.0.0'
-gem 'capistrano-rvm', '~> 0.0.3'
-gem 'capistrano-rails', '~> 1.0.0'
+gem 'mina'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
